@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="./materialize.min.css" type="text/css" rel="stylesheet" />
+	<title>client</title>
+	<style>
+		.navbarColor {
+			background: linear-gradient(-45deg, #fe4971, #fe6b8b, #ff8e53, #ff7831);
+		}
+
+		body {
+			/* background: #222; */
+			/* width: 100wh;
+		height: 90vh;
+		color: #fff; */
+			background: linear-gradient(-45deg, #fe4971, #fe6b8b, #ff8e53, #ff7831);
+			background-size: 400% 400%;
+			-webkit-animation: Gradient 5s ease infinite;
+			-moz-animation: Gradient 5s ease infinite;
+			animation: Gradient 5s ease infinite;
+		}
+
+		@-webkit-keyframes Gradient {
+			0% {
+				background-position: 0% 50%
+			}
+			50% {
+				background-position: 100% 50%
+			}
+			100% {
+				background-position: 0% 50%
+			}
+		}
+
+		@-moz-keyframes Gradient {
+			0% {
+				background-position: 0% 50%
+			}
+			50% {
+				background-position: 100% 50%
+			}
+			100% {
+				background-position: 0% 50%
+			}
+		}
+
+		@keyframes Gradient {
+			0% {
+				background-position: 0% 50%
+			}
+			50% {
+				background-position: 100% 50%
+			}
+			100% {
+				background-position: 0% 50%
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="grey darken-3 navbarColor">
+		<div class="nav-wrapper container">
+			<a href="#" class="brand-logo">Skynet</a>
+			<ul id="nav-mobile" class="right hide-on-med-and-down">
+				<li>
+					<a href="#">Home</a>
+				</li>
+				<li>
+					<a href="#">Courses</a>
+				</li>
+				<li>
+					<a href="#">Dashboard</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<h1 class="flow-text white-text left" style="font-size: 24px;">Introduction to Java</h1>
+		</div>
+		<div class="row">
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="meet" class="center">
+
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://meet.jit.si/external_api.js"></script>
+	<script>
+		$(document).ready(function () {
+			var domain = "meet.jit.si";
+			var options = {
+				interfaceConfigOverwrite: {
+					TOOLBAR_BUTTONS: ['hangup', 'recording'],
+					SHOW_JITSI_WATERMARK: false,
+					SHOW_POWERED_BY: false,
+					DISPLAY_WELCOME_PAGE_CONTENT: false,
+					SHOW_WATERMARK_FOR_GUESTS: false,
+					DEFAULT_REMOTE_DISPLAY_NAME: 'Other student',
+					ENABLE_FEEDBACK_ANIMATION: false,
+					MOBILE_APP_PROMO: false,
+					CLOSE_PAGE_GUEST_HINT: true
+				},
+				configOverwrite: {
+					startWithVideoMuted: true,
+					startWithAudioMuted: true,
+					localRecording: {
+						enabled: true,
+						format: 'flac'
+					},
+					enableClosePage: true,
+					requireDisplayName: true
+				},
+				roomName: "thisisme",
+				width: 700,
+				height: 500,
+				parentNode: document.querySelector('#meet')
+			}
+			var api = new JitsiMeetExternalAPI(domain, options);
+
+		});
+	</script>
+
+	<script src="./materialize.min.js"></script>
+</body>
+
+</html>
